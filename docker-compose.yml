@@ -1,0 +1,7 @@
+services:
+  vocal-quest:
+    build: .
+    container_name: vocal-quest
+    ports:
+      - "8080:80"
+    restart: unless-stopped

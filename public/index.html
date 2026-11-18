@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vocal Quest | Singing and Guitar Trainer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%232563eb%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%275.5%27 fill=%27none%27 stroke=%27white%27 stroke-width=%273.5%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/styles.css"></head>
+<body><div class="wrap">
+<header><h1><i></i>Vocal Quest</h1>
+<nav><button class="tab on" data-t="sing">Sing</button><button class="tab" data-t="gtr">Guitar</button></nav></header>
+
+<section class="card read">
+<div id="note" class="off">–</div>
+<div><div id="hz">Start the mic to see your pitch live.</div>
+<div class="meter"><i id="ndl"></i></div>
+<div class="ticks"><span>flat</span><span>in tune</span><span>sharp</span></div></div>
+<button class="btn p" id="bMic">Start microphone</button>
+</section>
+
+<main id="sing">
+<p class="msg" id="msg"></p>
+<canvas id="cv"></canvas>
+<div class="bar"><b id="hp"></b></div>
+<div class="row">
+<button class="btn" id="bCal">Find my range</button>
+<select id="lvl" aria-label="Level"></select>
+<button class="btn p" id="bGo">Start level</button>
+<button class="btn" id="bHear">Hear my note</button>
+<button class="btn" id="bStop">Stop</button>
+</div>
+<div class="row">
+<label><input type="checkbox" id="oct"> Octave-forgiving</label>
+<label><input type="checkbox" id="gd"> Guide tone (use headphones)</label>
+</div>
+<div class="stats">
+<div><span>Comfort note</span><b id="sC">–</b></div>
+<div><span>Range</span><b id="sR">–</b></div>
+<div><span>Unlocked level</span><b id="sL">1</b></div>
+<div><span>Score</span><b id="sS">0</b></div>
+</div>
+</main>
+
+<main id="gtr" hidden>
+<div class="card"><div class="big" id="gt">Tuner: pluck a string</div>
+<div class="chips" id="chips"></div>
+<p style="margin:0;color:var(--mut)">Tap a string to hear its target pitch. Standard tuning, low to high.</p></div>
+<div class="card"><div class="big" id="gq">Note challenge</div>
+<div class="bar"><b id="gp"></b></div>
+<div class="row"><button class="btn" id="gHear">Hear it</button><button class="btn" id="gSkip">Skip</button><span id="gs" style="color:var(--mut)">Streak: 0</span></div></div>
+</main>
+</div>
+
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/sing.js"></script>
+<script src="js/guitar.js"></script>
+<script src="js/main.js"></script></body></html>
