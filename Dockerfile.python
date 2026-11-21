@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg build-essential && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY tools/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN python -c "import torchaudio, soundfile, librosa; from audio_separator.separator import Separator; print('All audio dependencies OK')"
+COPY tools/prepare.py .
+ENV TORCH_HOME=/models
+ENTRYPOINT ["python", "prepare.py"]
+CMD ["--music-dir", "/music"]

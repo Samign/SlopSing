@@ -1,0 +1,6 @@
+audio-separator[gpu]
+librosa
+numpy
+soundfile
+torch
+torchaudio
