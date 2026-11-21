@@ -1,4 +1,8 @@
 bin/
 include/
 lib/
-lib64/
+lib64
+liv64/
+venv/
+.venv/
+env/
