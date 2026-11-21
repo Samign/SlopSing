@@ -4,4 +4,23 @@ services:
     container_name: vocal-quest
     ports:
       - "8080:80"
+    volumes:
+      - ./music:/usr/share/nginx/html/music:ro
     restart: unless-stopped
+
+  # Optional tool, not started by "up". Run:  docker compose run --rm prepare
+  prepare:
+      build:
+        context: .
+        dockerfile: Dockerfile.python
+      profiles: ["tools"]
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                count: all
+                capabilities: [gpu]
+      volumes:
+        - ./music:/music
+        - stems-models:/models
