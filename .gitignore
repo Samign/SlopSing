@@ -6,3 +6,5 @@ liv64/
 venv/
 .venv/
 env/
+share/
+pyvenv.cfg
